@@ -1,0 +1,14 @@
+{
+  "name": "Block Drop",
+  "short_name": "Block Drop",
+  "description": "A colorful, original falling-block puzzle game. Play offline.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#090e1b",
+  "theme_color": "#090e1b",
+  "icons": [
+    { "src": "icons/block-drop.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

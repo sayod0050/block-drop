@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#090e1b">
+  <meta name="description" content="Block Drop — a colorful, original falling-block puzzle. Play offline on your phone.">
+  <title>Block Drop — Pocket Puzzle</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/block-drop.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Block Drop home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span><b>BLOCK</b><em>DROP</em></span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-button" id="theme-button" aria-label="Toggle color theme" title="Toggle theme">☼</button>
+        <button class="icon-button" id="sound-button" aria-label="Toggle sound" title="Toggle sound">♫</button>
+        <button class="icon-button" id="menu-button" aria-label="Open menu" title="Menu">Ⅱ</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro" id="intro">
+        <p class="eyebrow">A LITTLE SPACE. A LOT OF SATISFACTION.</p>
+        <h1>Find your <span>flow.</span></h1>
+        <p class="intro-copy">Stack, clear, and chase your next best run.</p>
+      </section>
+
+      <section class="mode-row" aria-label="Game mode">
+        <label for="mode-select">MODE</label>
+        <select id="mode-select">
+          <option value="classic">Classic</option>
+          <option value="sprint">Sprint · 40 lines</option>
+          <option value="time">Time attack · 2 min</option>
+          <option value="zen">Zen</option>
+          <option value="challenge">Challenge · 8 lines</option>
+        </select>
+        <button class="text-button" id="start-button">NEW GAME <span>↗</span></button>
+      </section>
+
+      <section class="game-layout" aria-label="Game">
+        <aside class="side-panel left-panel">
+          <div class="mini-card"><span class="mini-label">HOLD</span><canvas id="hold-canvas" width="120" height="100" aria-label="Held piece"></canvas><button class="small-button" id="hold-button">HOLD <kbd>C</kbd></button></div>
+          <div class="tip-card"><span class="tip-icon">✦</span><p id="tip-text">Clear lines to level up and speed things up.</p></div>
+        </aside>
+        <div class="board-wrap">
+          <div class="board-topline"><span class="live-label"><i></i> <span id="status-text">READY</span></span><span id="mode-label">CLASSIC</span></div>
+          <div class="board-frame">
+            <canvas id="board" width="300" height="600" aria-label="Game board"></canvas>
+            <div class="board-overlay" id="overlay">
+              <div class="overlay-card"><span class="overlay-symbol" id="overlay-symbol">Ⅱ</span><h2 id="overlay-title">Paused</h2><p id="overlay-copy">Take a breather. Your run is saved.</p><button class="primary-button" id="overlay-action">RESUME</button><button class="quiet-button" id="overlay-secondary">NEW GAME</button></div>
+            </div>
+          </div>
+          <p class="gesture-hint">SWIPE TO MOVE <span>·</span> TAP TO ROTATE <span>·</span> SWIPE DOWN TO DROP</p>
+        </div>
+        <aside class="side-panel right-panel">
+          <div class="mini-card next-card"><span class="mini-label">UP NEXT <small>5</small></span><canvas id="next-canvas" width="120" height="280" aria-label="Next five pieces"></canvas></div>
+          <div class="stat-card"><span class="mini-label">SCORE</span><strong id="score-value">0</strong><div class="stat-divider"></div><span class="mini-label">BEST</span><strong class="best-value" id="best-value">0</strong></div>
+        </aside>
+      </section>
+
+      <section class="stats-strip" aria-label="Run statistics">
+        <div><span>LINES</span><strong id="lines-value">0</strong></div>
+        <div><span>LEVEL</span><strong id="level-value">1</strong></div>
+        <div><span>COMBO</span><strong id="combo-value">—</strong></div>
+        <div class="timer-stat" id="timer-stat"><span>TIME</span><strong id="time-value">2:00</strong></div>
+      </section>
+
+      <section class="controls" aria-label="Touch controls">
+        <button class="control-button" data-action="left" aria-label="Move left">←</button>
+        <button class="control-button rotate-control" data-action="rotate" aria-label="Rotate piece">↻</button>
+        <button class="control-button" data-action="right" aria-label="Move right">→</button>
+        <button class="control-button secondary-control" data-action="hold" aria-label="Hold piece">HOLD</button>
+        <button class="control-button secondary-control" data-action="soft" aria-label="Soft drop">↓</button>
+        <button class="control-button drop-control" data-action="hard" aria-label="Hard drop">DROP</button>
+      </section>
+      <footer><span>MADE FOR THE MOMENT BETWEEN MOMENTS.</span><button id="help-button">HOW TO PLAY</button><button id="stats-button">MY STATS</button></footer>
+    </main>
+  </div>
+  <script src="game.js" defer></script>
+</body>
+</html>
